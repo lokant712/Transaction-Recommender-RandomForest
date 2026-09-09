@@ -126,15 +126,45 @@ streamlit run gui/app.py
 
 ---
 
-## 📊 Benchmark Results (Primary D1 Dataset)
+## 📦 Datasets & Multi-Platform Evaluation
+
+The system is evaluated across **4 diverse real-world e-commerce transaction repositories**, with cryptographic byte-level SHA-256 integrity verified in `data/DATASET_MANIFEST.json`:
+
+| Dataset ID | Platform / Domain | Total Ingested Rows | Unique Customers | Unique Catalog Items | Temporal Window | Characteristic |
+| :---: | :--- | :---: | :---: | :---: | :---: | :--- |
+| **D1** | **UCI Online Retail (UK)** | **$397,924$** | $4,339$ | $3,665$ | 2010–2011 | Core benchmark; multi-item wholesale/retail invoices |
+| **D2** | **Retailrocket E-Commerce** | **$2,756,101$** | $1,407,580$ | $235,061$ | 2015 | Implicit behavioral events (views, carts, transactions) |
+| **D3** | **Instacart Market Basket** | **$32,434,489$** | $206,209$ | $49,677$ | Relative seq | High-frequency grocery reorders & basket co-purchases |
+| **D4** | **UCI Online Retail II** | **$805,620$** | $5,881$ | $4,631$ | 2009–2011 | 2-year longitudinal transaction stream for multi-year stability |
+
+---
+
+## 📊 Cross-Dataset Replication Benchmark (All 4 Datasets)
+
+Full end-to-end pipeline replication (candidate generation, retrieval audit, RFM feature engineering, and Random Forest ranking) across all four datasets:
+
+| Dataset | Dataset Name | Transactions Analyzed | Candidate Catalog Size | Candidate Recall | Popularity Recall@10 | RF Recall@10 | RF NDCG@10 | RF Relative Gain vs Popularity |
+| :---: | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **D1** | **UCI Online Retail (UK)** | $397,924$ | $1,000$ | **$63.99\%$** | $0.0028$ | **$0.1064$** | **$0.2112$** | **$+3,700.0\%$** |
+| **D2** | **Retailrocket Recommender** | $400,000$ | $1,000$ | **$13.36\%$** | $0.0001$ | **$0.0013$** | **$0.0009$** | **$+1,200.0\%$** |
+| **D3** | **Instacart Grocery Basket** | $400,000$ | $1,000$ | **$56.73\%$** | $0.0060$ | **$0.0329$** | **$0.0450$** | **$+448.3\%$** |
+| **D4** | **UCI Online Retail II (2-Yr)** | $400,000$ | $1,000$ | **$63.02\%$** | $0.0034$ | **$0.1005$** | **$0.2122$** | **$+2,855.9\%$** |
+
+*Note: For D2, D3, and D4, a representative sample of 400,000 transactions was analyzed in replication benchmarks to balance computational throughput with statistical fidelity, while D1 was processed across all 397,924 cleaned records.*
+
+---
+
+## 🏆 In-Depth Model Comparison (Primary D1 Benchmark)
+
+Detailed ranking quality and classification metrics on the locked test partition:
 
 | Model Architecture | Precision@5 | Recall@5 | HitRate@5 | Precision@10 | Recall@10 | HitRate@10 | PR-AUC |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Popularity Baseline** | 0.0274 | 0.0069 | 0.1094 | 0.0284 | 0.0146 | 0.1770 | N/A (Heuristic) |
-| **Item-Item CF** | 0.0376 | 0.0084 | 0.1139 | 0.0350 | 0.0167 | 0.1538 | N/A (Sim) |
-| **Implicit ALS / MF** | 0.0440 | 0.0171 | 0.1980 | 0.0378 | 0.0260 | 0.1879 | 0.4820 |
-| **Two-Tower Neural Rec** | 0.0512 | 0.0151 | 0.1776 | 0.0398 | 0.0211 | 0.2111 | 0.5120 |
-| **Random Forest Ranker** | **0.2780** | **0.0989** | **0.3179** | **0.2443** | **0.1453** | **0.3179** | **0.5507** |
+| **Item-Item Collaborative Filtering** | 0.0376 | 0.0084 | 0.1139 | 0.0350 | 0.0167 | 0.1538 | N/A (Sim) |
+| **Implicit ALS / Matrix Factorization** | 0.0440 | 0.0171 | 0.1980 | 0.0378 | 0.0260 | 0.1879 | 0.4820 |
+| **Two-Tower Neural Recommender** | 0.0512 | 0.0151 | 0.1776 | 0.0398 | 0.0211 | 0.2111 | 0.5120 |
+| **Random Forest Ranker (Selected)** | **0.2780** | **0.0989** | **0.3179** | **0.2443** | **0.1453** | **0.3179** | **0.5507** |
 
 > **Key Finding:** Supervised Random Forest achieves a **+895.2% relative gain in Recall@10** and **+760.2% in Precision@10** over the Popularity baseline while distributing recommendations across $68.4\%$ of the candidate catalog.
 
