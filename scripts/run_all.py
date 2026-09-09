@@ -18,7 +18,6 @@ Executes the entire end-to-end laboratory pipeline:
 12. E9: Full Cross-Dataset Replication across D1, D2, D3, and D4 (results/Cross_Dataset_Replication.csv)
 13. E10 & Five-Case Audit (Table D)
 14. Generation of all 10 Publication Figures (300 DPI PNGs with captions)
-15. Auto-compilation of comprehensive 15+ page Technical Report (DOCX & PDF)
 """
 
 import os
@@ -422,12 +421,8 @@ def run_full_pipeline():
     # 6. Cross Dataset Replication (E9)
     run_cross_dataset_replication_experiment(selected_params)
 
-    # 7. Generate Comprehensive 15+ Page Report
-    print("\n--- Generating Comprehensive Technical Report (DOCX + PDF) ---")
-    build_comprehensive_report()
-
     print("\n" + "=" * 80)
-    print("ALL EXPERIMENTS, TABLES, FIGURES, AND REPORTS GENERATED SUCCESSFULLY!")
+    print("ALL EXPERIMENTS, TABLES, AND FIGURES GENERATED SUCCESSFULLY!")
     print("=" * 80)
 
 

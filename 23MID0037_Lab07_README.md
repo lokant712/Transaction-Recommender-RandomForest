@@ -29,7 +29,7 @@
 ## 🏛️ System Architecture
 
 ```
-Recommender-RandomForest-TransactionData/
+Transaction-Recommender-RandomForest/
 ├── config.yaml                       # Central configuration (single source of truth)
 ├── requirements.txt                  # Environment dependencies
 ├── retrain.py                        # Root CLI: retrain & tune pipeline
@@ -50,8 +50,7 @@ Recommender-RandomForest-TransactionData/
 │   ├── models_advanced.py            # Item-Item CF, ALS, SVD, Two-Tower Neural Rec
 │   ├── evaluate.py                   # Ranking (Precision/Recall/NDCG@K) & classification metrics
 │   ├── error_analysis.py             # Five-case audit & cold-start diagnostics
-│   ├── plotting.py                   # 10 publication figures with 2-3 sentence captions
-│   └── report_generator.py           # Programmatic 15+ page DOCX & PDF compiler
+│   └── plotting.py                   # 10 publication figures with 2-3 sentence captions
 ├── notebooks/
 │   └── 23MID0037_Lab07_Recommender_RF.ipynb   # Executable master notebook
 ├── results/                          # Flat directory for all result CSV tables (A-H, E5, E9)
@@ -62,9 +61,6 @@ Recommender-RandomForest-TransactionData/
 │   ├── feature_schema.json           # Feature dictionary & definitions
 │   ├── split_manifest.json           # Frozen chronological cutoffs
 │   └── candidate_policy.json         # Candidate universe policy parameters
-├── reports/
-│   ├── 23MID0037_Lab07_Report.docx   # Comprehensive academic report (Word)
-│   └── 23MID0037_Lab07_Report.pdf    # Comprehensive academic report (PDF, >=15 pages)
 ├── gui/
 │   └── app.py                        # Interactive Streamlit dashboard
 └── scripts/

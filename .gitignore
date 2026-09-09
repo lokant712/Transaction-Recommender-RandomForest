@@ -3,6 +3,14 @@
 *.tar.gz
 *.7z
 
+# Reports and generated documents
+reports/
+*.docx
+*.pdf
+
+# Report generation code
+src/report_generator.py
+
 # Raw and large datasets (manifest in data/DATASET_MANIFEST.json is preserved)
 data/*/*.csv
 data/*/*.zip
