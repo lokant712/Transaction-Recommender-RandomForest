@@ -1,10 +1,8 @@
-# Configuration for MDI3003 Lab 07 Recommender System
-student:
-  name: "Lokanth S"
-  reg_no: "23MID0037"
-  course: "MDI3003 Advanced Predictive Analytics"
-  lab_no: "Lab 07 (Experiment 07)"
-  faculty: "Dr. Durgesh Kumar"
+# Configuration for Transaction Recommender System
+project:
+  name: "Transaction-Recommender-RandomForest"
+  version: "1.0.0"
+  description: "Personalized Recommendation System from Customer Transaction Data using Random Forest"
   repo: "lokant712/Transaction-Recommender-RandomForest"
 
 reproducibility:
@@ -24,7 +22,6 @@ paths:
   figures_dir: "figures"
   models_dir: "models"
   artifacts_dir: "artifacts"
-  reports_dir: "reports"
   model_save_path: "models/random_forest.joblib"
   feature_schema_path: "artifacts/feature_schema.json"
   split_manifest_path: "artifacts/split_manifest.json"
