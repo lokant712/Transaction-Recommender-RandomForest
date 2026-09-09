@@ -1,0 +1,5 @@
+System,Training time,Scoring latency/user,Model size,Catalog coverage,Complexity note
+Popularity,0.05s,0.002ms,12 KB,1.0%,O(1) lookup after sorting global item frequencies
+Item-Item CF,0.75s,7.984ms,7812.5 KB,34.4%,O(M^2) item similarity computation + historical dot product
+Implicit ALS / MF,5.67s,5.559ms,1264.2 KB,80.7%,O(epochs * (U*d^3 + I*d^3)) latent factor optimization
+Two-Tower Neural Rec,9.99s,0.633ms,148 KB,1.0%,Dual tower embeddings with PyTorch backprop + forward dot-product

@@ -1,0 +1,75 @@
+{
+  "feature_count": 29,
+  "feature_names": [
+    "cust_txns",
+    "cust_items",
+    "cust_qty",
+    "cust_spend",
+    "cust_recency_days",
+    "cust_active_span_days",
+    "cust_avg_basket_size",
+    "cust_avg_item_price",
+    "item_txns",
+    "item_buyers",
+    "item_qty",
+    "item_spend",
+    "item_avg_price",
+    "item_recency_days",
+    "item_active_span_days",
+    "item_repeat_rate",
+    "item_popularity_rank",
+    "pair_purchases",
+    "pair_qty",
+    "pair_spend",
+    "pair_days_since_last",
+    "pair_repeat_indicator",
+    "pair_has_prior_purchase",
+    "pair_spend_share",
+    "pair_qty_share",
+    "pair_co_purchase_affinity",
+    "context_day_of_week",
+    "context_month",
+    "context_quarter"
+  ],
+  "feature_groups": {
+    "customer_rfm": [
+      "cust_txns",
+      "cust_items",
+      "cust_qty",
+      "cust_spend",
+      "cust_recency_days",
+      "cust_active_span_days",
+      "cust_avg_basket_size",
+      "cust_avg_item_price"
+    ],
+    "item_popularity": [
+      "item_txns",
+      "item_buyers",
+      "item_qty",
+      "item_spend",
+      "item_avg_price",
+      "item_recency_days",
+      "item_active_span_days",
+      "item_repeat_rate",
+      "item_popularity_rank"
+    ],
+    "pair_history": [
+      "pair_purchases",
+      "pair_qty",
+      "pair_spend",
+      "pair_days_since_last",
+      "pair_repeat_indicator",
+      "pair_has_prior_purchase",
+      "pair_spend_share",
+      "pair_qty_share",
+      "pair_co_purchase_affinity"
+    ],
+    "context": [
+      "context_day_of_week",
+      "context_month",
+      "context_quarter"
+    ]
+  },
+  "cutoff_date": "2011-10-09T10:29:00",
+  "leakage_proof": "All features aggregated strictly over transactions where InvoiceDate < cutoff."
+}

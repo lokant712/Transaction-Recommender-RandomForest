@@ -1,0 +1,5 @@
+Dataset_ID,Dataset_Name,Transactions_Analyzed_E9,Unique_Users,Unique_Items,Candidate_Catalog_Size,Candidate_Recall,Fully_Representable_Users_Pct,Popularity_Precision@10,Popularity_Recall@10,Popularity_NDCG@10,RF_Precision@10,RF_Recall@10,RF_NDCG@10,RF_Recall_Gain_vs_Pop
+D1,UCI Online Retail (UK),397924,4339,3665,1000,0.6399,10.4%,0.0064,0.0028,0.0077,0.1823,0.1064,0.2112,+3700.0%
+D2,Retailrocket Recommender Dataset,400000,208948,93344,1000,0.1336,11.0%,0.0,0.0001,0.0,0.0002,0.0013,0.0009,+1200.0%
+D3,Instacart Grocery Market Basket,400000,33125,27303,1000,0.5673,8.1%,0.0065,0.006,0.0089,0.0333,0.0329,0.045,+448.3%
+D4,UCI Online Retail II (2-Year),400000,4282,4009,1000,0.6302,7.7%,0.0094,0.0034,0.0108,0.1863,0.1005,0.2122,+2855.9%

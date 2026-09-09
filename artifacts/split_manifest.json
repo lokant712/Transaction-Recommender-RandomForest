@@ -1,0 +1,26 @@
+{
+  "quantile_t1": 0.7,
+  "quantile_t2": 0.85,
+  "cutoff_t1": "2011-10-09T10:29:00",
+  "cutoff_t2": "2011-11-11T12:44:00",
+  "train_hist_rows": 278543,
+  "train_hist_date_range": [
+    "2010-12-01T08:26:00",
+    "2011-10-09T10:23:00"
+  ],
+  "train_hist_users": 3707,
+  "train_hist_items": 3542,
+  "val_future_rows": 59574,
+  "val_future_date_range": [
+    "2011-10-09T10:29:00",
+    "2011-11-11T12:41:00"
+  ],
+  "val_future_users": 1610,
+  "test_future_rows": 59807,
+  "test_future_date_range": [
+    "2011-11-11T12:44:00",
+    "2011-12-09T12:50:00"
+  ],
+  "test_future_users": 1554,
+  "leakage_rule": "Every feature for validation/test must be computed strictly before cutoff_t1 and cutoff_t2 respectively."
+}

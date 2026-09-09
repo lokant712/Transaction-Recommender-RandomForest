@@ -1,0 +1,12 @@
+{
+  "version": "1.0.0",
+  "item_column": "StockCode",
+  "selection_strategy": "top_frequent_in_training_history",
+  "num_candidate_items": 1000,
+  "min_items_bound": 500,
+  "max_items_bound": 2000,
+  "most_popular_item": "85123A",
+  "least_popular_candidate_item": "22434",
+  "allow_repeat_purchases": true,
+  "filter_seen_items_for_baseline": false
+}

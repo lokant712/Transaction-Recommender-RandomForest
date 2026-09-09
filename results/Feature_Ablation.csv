@@ -1,0 +1,5 @@
+Feature set,Validation Recall@10,Test Recall@10,Test NDCG@10,Observation
+All core features,0.1172,0.1221,0.2413,"Full multi-faceted customer, item, pair, and context feature space"
+Without pair history,0.0731,0.0761,0.1542,Drops repeat and co-purchase affinity signals; tests reliance on pure customer/item stats
+Without customer RFM,0.1134,0.1181,0.2367,Removes user-level activity and monetary metrics; tests item-centric ranking
+Without item popularity,0.1383,0.1441,0.278,Removes catalog transaction velocity and price stats; tests pure pair affinity

@@ -1,0 +1,58 @@
+# Configuration for MDI3003 Lab 07 Recommender System
+student:
+  name: "Lokanth S"
+  reg_no: "23MID0037"
+  course: "MDI3003 Advanced Predictive Analytics"
+  lab_no: "Lab 07 (Experiment 07)"
+  faculty: "Dr. Durgesh Kumar"
+  repo: "lokant712/Transaction-Recommender-RandomForest"
+
+reproducibility:
+  seed: 42
+  seeds_list: [42, 101, 2024]
+  n_bootstrap: 1000
+  bootstrap_ci: 0.95
+
+paths:
+  data_dir: "data"
+  d1_dir: "data/D1_uci_online_retail"
+  d2_dir: "data/D2_retailrocket"
+  d3_dir: "data/D3_instacart"
+  d4_dir: "data/D4_uci_online_retail_ii"
+  manifest_path: "data/DATASET_MANIFEST.json"
+  results_dir: "results"
+  figures_dir: "figures"
+  models_dir: "models"
+  artifacts_dir: "artifacts"
+  reports_dir: "reports"
+  model_save_path: "models/random_forest.joblib"
+  feature_schema_path: "artifacts/feature_schema.json"
+  split_manifest_path: "artifacts/split_manifest.json"
+  candidate_policy_path: "artifacts/candidate_policy.json"
+
+temporal_split:
+  quantile_t1: 0.70  # train history cutoff
+  quantile_t2: 0.85  # validation end / test start cutoff
+  min_customer_txns: 2
+  min_item_buyers: 5
+
+candidate_policy:
+  version: "1.0.0"
+  min_candidate_items: 500
+  max_candidate_items: 2000
+  top_n_candidates: 1000
+  n_negatives: 50
+  allow_repeat_purchases: true
+  filter_seen_items_baseline: false
+
+rf_tuning_grid:
+  n_estimators: [200, 400]
+  max_depth: [null, 12, 20]
+  min_samples_leaf: [1, 2, 5]
+  max_features: ["sqrt", 0.5]
+  class_weight: "balanced_subsample"
+
+evaluation:
+  k_values: [5, 10, 20]
+  primary_k: 10
+  ranking_metrics: ["Precision", "Recall", "HitRate", "NDCG", "MAP"]

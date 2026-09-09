@@ -1,0 +1,6 @@
+Case,CustomerID,History size,True future items,Top-5 recommendations,Hits,Comment
+Case 1 (Successful Personalized Hit),12347,100 unique items,"23497, 23552, 21064 (+8 more)","23084, 21731, 20719, 21035, 21832","21731, 20719, 23084",RF captured repeat/co-purchase affinity from customer purchase history
+"Case 2 (Missed by RF, Found by Popularity)",12748,1490 unique items,"22070, 22071, 21135 (+847 more)","22385, 21935, 20982, 22863, 21577","20982, 21935",Generic catalog staple purchased with no prior affinity; popularity captured it directly
+Case 3 (RF Beats Popularity),12347,100 unique items,"23497, 23552, 21064 (+8 more)","23084, 21731, 20719, 21035, 21832","21731, 20719, 23084",Niche category preferences effectively ranked by RF; generic popularity baseline failed
+Case 4 (Sparse / Cold-Start Customer),13068,1 unique items,85099C,"85099C, 21136, 23201, 21506, 16237",85099C,Customer had minimal historical interactions; predictions rely heavily on general item popularity features
+Case 5 (Questionable / Failure Mode),12991,22 unique items,"23527, 23524, 23523 (+6 more)","21212, 21912, 22721, 22621, 21830",0 hits,Over-promoted high-frequency item despite user having specialized giftware history; diagnosed to popularity bias
